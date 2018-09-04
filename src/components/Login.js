@@ -6,11 +6,13 @@ class Login extends Component {
       <div className="center log-in-container">
         <h3>Welcome to Would You Rather<br />Please Log In to Continue</h3>
         <div>
-          <img className="log-in-img" src="https://i.kfs.io/album/global/24208457,0v1/fit/500x500.jpg" />
+          <img className="log-in-img"
+            src="https://i.kfs.io/album/global/24208457,0v1/fit/500x500.jpg"
+            alt="would you red velvet" />
         </div>
         <div className="log-in-box">
-          <select>
-            <option value="" disabled selected>Select User</option>
+          <select defaultValue="default">
+            <option value="default" disabled>Select User</option>
             <option value="sarahedo">Sarah Edo</option>
             <option value="tylermcginnis">Tyler McGinnis</option>
           </select>

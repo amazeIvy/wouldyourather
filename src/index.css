@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+.container {
+  margin: 0 auto;
+}
+
 .btn {
   text-transform: uppercase;
   margin: 15px auto;
@@ -28,7 +32,6 @@ body {
 .log-in-container {
   max-width: 500px;
   padding: 10px;
-  margin: 0 auto;
   border: 5px solid #f2bdbd;
   border-radius: 20px;
 }
@@ -53,4 +56,64 @@ body {
   background: #fff;
   border: 1px solid rgba(0,0,0,.29);
   font-size: 0.8em;
+}
+
+/*------- Home View --------*/
+.questions-container {
+  max-width: 600px;
+  padding: 10px;
+  border: 2px solid #f2bdbd;
+  border-radius: 10px;
+}
+.questions-tab-container {
+  height: 50px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin: -10px -10px 0 -10px;
+  background-color: #d8e2ea;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1px solid #f2bdbd;
+}
+.questions-tab-container div {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.questions-tab-container a {
+  margin: auto;
+}
+.questions-list-tab-selected {
+  background-color: white;
+  font-weight: 700;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid #f2bdbd;
+}
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 110px;
+  border: 1px solid #6fbbb4;
+  border-radius: 3px;
+  margin-top: 15px;
+  padding: 10px;
+}
+.question-content {
+  flex: 1;
+  padding-left: 15px;
+}
+.avatar-big {
+  width: 100px;
+  padding-right: 15px;
+  border-right: 2px solid #00968866;
+}
+.avatar-small {
+  width: 40px;
+}
+.question button {
+  width: 80px;
+  height: 40px;
 }

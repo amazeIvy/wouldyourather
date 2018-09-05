@@ -29,7 +29,7 @@ class Login extends Component {
     const { users } = this.props;
 
     return (
-      <div className="center log-in-container">
+      <div className="center container log-in-container">
         <h3>Welcome to Would You Rather<br />Please Log In to Continue</h3>
         <div>
           <img className="log-in-img"

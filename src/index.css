@@ -5,7 +5,21 @@ body {
   color: #3c786f;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 /** App styles */
+#root {
+  width: 900px;
+  margin: 0 auto;
+}
+
 .center {
   text-align: center;
 }
@@ -26,6 +40,54 @@ body {
   position: relative;
   border-radius: 5px;
   color: #3c786fbd;
+}
+
+/*------- Nav Bar -------*/
+.nav-bar {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-bottom: 1px solid #d8e2ea;
+  margin-bottom: 25px;
+}
+
+.nav-links-container {
+  flex: 1;
+}
+
+.nav-links-container a {
+  margin: 0 10px;
+  padding: 0 5px;
+}
+
+.nav-links-container a:hover {
+  border-left: 2px solid #f2bdbd;
+}
+
+.nav-active {
+  font-weight: 700;
+  border-left: 2px solid #f2bdbd;
+}
+
+.nav-user-login-container {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+
+.nav-user-info {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.nav-user-info span {
+  padding-right: 5px;
+}
+
+.avatar-x-small {
+  width: 25px;
+  height: 25px;
 }
 
 /*------- Login View -------*/
@@ -76,7 +138,6 @@ body {
   border-bottom: 1px solid #f2bdbd;
 }
 .questions-tab-container div {
-  cursor: pointer;
   width: 50%;
   height: 100%;
   display: flex;
@@ -84,6 +145,9 @@ body {
 }
 .questions-tab-container a {
   margin: auto;
+}
+.questions-tab-container a:hover {
+  color: #36c6d9;
 }
 .questions-list-tab-selected {
   background-color: white;

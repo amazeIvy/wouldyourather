@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { setAuthedUser } from '../actions/authedUser'
@@ -26,7 +27,11 @@ class Login extends Component {
   }
 
   render () {
-    const { users } = this.props;
+    const { users, authedUser } = this.props;
+
+    if (authedUser) {
+      return <Redirect exact to='/' />;
+    }
 
     return (
       <div className="center container log-in-container">
@@ -54,14 +59,15 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, authedUser }) {
   return {
     users: Object.keys(users).map(userId => {
       return {
         id: userId,
         name: users[userId].name
       }
-    })
+    }),
+    authedUser
   };
 }
 

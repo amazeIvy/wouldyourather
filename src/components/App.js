@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 
 import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
+import NewQuestion from './NewQuestion';
+import LeaderBoard from './LeaderBoard';
 
 class App extends Component {
   componentDidMount () {
@@ -12,13 +15,46 @@ class App extends Component {
   }
 
   render() {
+    const { authedUser } = this.props;
+
     return (
-      <div>
-        <Nav />
-        <Home />
-      </div>
+      <Router>
+        <div>
+          <Nav />
+          <div>
+            <Route path='/' exact render={() => (
+              authedUser ? (
+                <Home />
+              ) : (
+                <Redirect to='/login' />
+              )
+            )} />
+            <Route path='/new' render={() => (
+              authedUser ? (
+                <NewQuestion />
+              ) : (
+                <Redirect to='/login' />
+              )
+            )} />
+            <Route path='/leader-board' render={() => (
+              authedUser ? (
+                <LeaderBoard />
+              ) : (
+                <Redirect to='/login' />
+              )
+            )} />
+            <Route path='/login' component={Login} />
+          </div>
+        </div>
+      </Router>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps ({ authedUser }) {
+  return {
+    authedUser
+  };
+}
+
+export default connect(mapStateToProps)(App);

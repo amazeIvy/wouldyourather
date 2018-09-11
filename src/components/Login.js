@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { setAuthedUser } from '../actions/authedUser'
+import { setActivePath } from '../actions/activePath'
 
 class Login extends Component {
   state = {
@@ -16,6 +17,7 @@ class Login extends Component {
     const { selectedUserId } = this.state;
 
     dispatch(setAuthedUser(selectedUserId))
+    dispatch(setActivePath('/'))
   }
 
   handleSelectUser = (e) => {

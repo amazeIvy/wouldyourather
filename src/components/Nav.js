@@ -3,25 +3,44 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { removeAuthedUser } from '../actions/authedUser'
+import { setActivePath } from '../actions/activePath'
 
 class Nav extends Component {
+  handlePathChange = (path) => {
+    this.props.dispatch(setActivePath(path))
+  }
+
   handleLogOut = () => {
     const { dispatch } = this.props;
     dispatch(removeAuthedUser());
+    dispatch(setActivePath('/login'));
   }
 
   render () {
-    const { userName, userAvatarUrl } = this.props;
+    const { userName, userAvatarUrl, activePath } = this.props;
+
     return (
       <section className="nav-bar">
         <div className="nav-links-container">
-          <NavLink to ='/' exact  activeClassName="nav-active">
+          <NavLink
+            to ='/' exact
+            className={ activePath === '/' ? 'active' : ''}
+            onClick={() => this.handlePathChange('/')}
+          >
             Home
           </NavLink>
-          <NavLink to ='/new' activeClassName='nav-active'>
+          <NavLink
+            to ='/new'
+            className={ activePath === '/new' ? 'active' : ''}
+            onClick={() => this.handlePathChange('/new')}
+          >
             New Question
           </NavLink>
-          <NavLink to ='/leader-board' activeClassName='nav-active'>
+          <NavLink
+            to ='/leader-board'
+            className={ activePath === '/leader-board' ? 'active' : ''}
+            onClick={() => this.handlePathChange('/leader-board')}
+          >
             Leader Board
           </NavLink>
         </div>
@@ -41,10 +60,11 @@ class Nav extends Component {
   }
 }
 
-function mapStateToProps ({ users, authedUser }) {
+function mapStateToProps ({ users, authedUser, activePath }) {
   return {
     userName: users[authedUser] && users[authedUser].name,
-    userAvatarUrl: users[authedUser] && users[authedUser].avatarURL
+    userAvatarUrl: users[authedUser] && users[authedUser].avatarURL,
+    activePath
   };
 }
 

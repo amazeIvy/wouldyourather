@@ -64,7 +64,7 @@ a:hover {
   border-left: 2px solid #f2bdbd;
 }
 
-.nav-active {
+.active {
   font-weight: 700;
   border-left: 2px solid #f2bdbd;
 }

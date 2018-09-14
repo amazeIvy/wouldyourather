@@ -4,7 +4,8 @@ import Question from './Question';
 
 class Home extends Component {
   state = {
-    tab: 'unanswered'
+    tab: 'unanswered',
+
   }
 
   handleToggleTab = (e) => {
@@ -21,23 +22,23 @@ class Home extends Component {
 
     return (
       <section className="container questions-container">
-      <div className="questions-tab-container">
-        <div className={ tab === 'unanswered' ? 'questions-list-tab-selected' : '' }>
-          <a name="unanswered" onClick={this.handleToggleTab}>Unanswered</a>
+        <div className="questions-tab-container">
+          <div className={ tab === 'unanswered' ? 'questions-list-tab-selected' : '' }>
+            <a name="unanswered" onClick={this.handleToggleTab}>Unanswered</a>
+          </div>
+          <div className={ tab === 'answered' ? 'questions-list-tab-selected' : '' }>
+            <a name="answered" onClick={this.handleToggleTab}>Answered</a>
+          </div>
         </div>
-        <div className={ tab === 'answered' ? 'questions-list-tab-selected' : '' }>
-          <a name="answered" onClick={this.handleToggleTab}>Answered</a>
-        </div>
-      </div>
-      {
-        tab === 'unanswered'
-        ? unansweredQuestionIDs.map(id => (
-          <Question key={id} id={id} />
-          ))
-        : answeredQuestionIDs.map(id => (
-          <Question key={id} id={id} />
-          ))
-      }
+        {
+          tab === 'unanswered'
+          ? unansweredQuestionIDs.map(id => (
+            <Question key={id} id={id} btnName='Answer' />
+            ))
+          : answeredQuestionIDs.map(id => (
+            <Question key={id} id={id} btnName='View' />
+            ))
+        }
       </section>
     )
   }

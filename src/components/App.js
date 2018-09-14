@@ -6,6 +6,8 @@ import { handleInitialData } from '../actions/shared';
 import Nav from './Nav';
 import Login from './Login';
 import Home from './Home';
+import Answering from './Answering';
+import Answered from './Answered';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
 
@@ -29,6 +31,8 @@ class App extends Component {
                 <Redirect to='/login' />
               )
             )} />
+            <Route path='/answering/:id' component={Answering} />
+            <Route path='/answered/:id' component={Answered} />
             <Route path='/new' render={() => (
               authedUser ? (
                 <NewQuestion />

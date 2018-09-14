@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +16,7 @@ a {
 
 a:hover {
   cursor: pointer;
+  color: #36c6d9;
 }
 
 /** App styles */
@@ -36,7 +41,7 @@ a:hover {
   background: #d8e2ea;
   font-weight: 500;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.8em;
   position: relative;
   border-radius: 5px;
   color: #3c786fbd;
@@ -146,9 +151,6 @@ a:hover {
 .questions-tab-container a {
   margin: auto;
 }
-.questions-tab-container a:hover {
-  color: #36c6d9;
-}
 .questions-list-tab-selected {
   background-color: white;
   font-weight: 700;
@@ -180,4 +182,74 @@ a:hover {
 .question button {
   width: 80px;
   height: 40px;
+}
+
+/*------- Answer View --------*/
+.answer-container {
+  max-width: 600px;
+  border: 2px solid #f2bdbd;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.answer-title {
+  margin: 15px 0 0;
+  padding-bottom: 15px;
+  font-size: 1.2em;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #a5bbce;
+}
+.or-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #4791a2;
+  top: 80px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  border-radius: 18px;
+  color: white;
+  font-weight: 600;
+}
+.answer-title img {
+  height: 30px;
+  width: 30px;
+}
+.option-container {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  justify-items:center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+}
+.option-container div {
+  padding: 0 25px;
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.option-container div:hover {
+  cursor: pointer;
+  font-size: 1.1em;
+}
+.option-left {
+  border-right: 1px solid #a5bbce;
+  background-color: #caecf1;
+}
+.option-left:hover {
+  background-color: #e1f8fb;
+}
+.option-right {
+  background-color: #fdd7d7;
+}
+.option-right:hover {
+  background-color: #ffe8e8;
 }

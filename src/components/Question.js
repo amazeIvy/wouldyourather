@@ -2,21 +2,37 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { formatQuestion } from '../utils/helpers'
 
+import { Link, withRouter } from 'react-router-dom'
+
 class Question extends Component {
+  state = {
+    toPath: this.props.btnName === 'View' ? 'answered' : 'answering'
+  }
+
+  toAnswerPage = (e) => {
+    e.preventDefault();
+    const { history, id } = this.props;
+    const { toPath } = this.state;
+    history.push(`/${toPath}/${id}`)
+  }
+
   render () {
-    const { question } = this.props;
+    const { id, question, btnName } = this.props;
+    const { toPath } = this.state;
     const { authorAvatar, authorName, optionOne, optionTwo } = question;
 
     return (
-      <div className="question">
-        <img className="avatar-big" src={authorAvatar} title={authorName} alt="Author Avatar" />
-        <div className="question-content">
-          <h4>Would You Rather?</h4>
-          <p>... {optionOne} ...</p>
-          <p>... {optionTwo} ...</p>
+      <Link to={`/${toPath}/${id}`}>
+        <div className="question">
+          <img className="avatar-big" src={authorAvatar} title={authorName} alt="Author Avatar" />
+          <div className="question-content">
+            <h4>Would You Rather?</h4>
+            <p>... {optionOne} ...</p>
+            <p>... {optionTwo} ...</p>
+          </div>
+          <button className="btn" onClick={this.toAnswerPage}>{btnName}</button>
         </div>
-        <button className="btn">View</button>
-      </div>
+      </Link>
     )
   }
 }
@@ -31,4 +47,4 @@ function mapStateToProps ({users, questions}, {id}) {
   }
 }
 
-export default connect(mapStateToProps)(Question);
+export default withRouter(connect(mapStateToProps)(Question));

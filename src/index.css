@@ -214,6 +214,18 @@ a:hover {
   border-radius: 18px;
   color: white;
   font-weight: 600;
+  z-index: 10;
+}
+.your-choice-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: -5px;
+}
+.your-choice-icon img {
+  width: 50px;
+  z-index: 10;
 }
 .answer-title img {
   height: 30px;
@@ -228,13 +240,18 @@ a:hover {
   width: 100%;
   height: 200px;
 }
-.option-container div {
+.option-container div.option-left,
+.option-container div.option-right {
+  position: relative;
   padding: 0 25px;
   flex: 1;
-  text-align: center;
   height: 100%;
   display: flex;
   align-items: center;
+}
+.option-container div p {
+  text-align: center;
+  width: 100%;
 }
 .option-container div:hover {
   cursor: pointer;
@@ -252,4 +269,12 @@ a:hover {
 }
 .option-right:hover {
   background-color: #ffe8e8;
+}
+.result-container {
+  width: 100%;
+}
+.result-percent {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  font-weight: 700;
 }

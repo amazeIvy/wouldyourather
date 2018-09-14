@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
 import { setActivePath } from '../actions/activePath'
 
+import loginImg from '../images/login.jpg';
+
 class Login extends Component {
   state = {
     selectedUserId: ''
@@ -40,7 +42,7 @@ class Login extends Component {
         <h3>Welcome to Would You Rather<br />Please Log In to Continue</h3>
         <div>
           <img className="log-in-img"
-            src="https://i.kfs.io/album/global/24208457,0v1/fit/500x500.jpg"
+            src={loginImg}
             alt="would you red velvet" />
         </div>
         <div className="log-in-box">

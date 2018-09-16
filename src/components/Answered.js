@@ -5,7 +5,6 @@ import checkMark from '../images/checkmark.png';
 class Answered extends Component {
   render() {
     const {
-      id,
       avatarURL,
       question,
       isOptionOneSelected,
@@ -65,7 +64,6 @@ function mapStateToProps ({users, questions, authedUser}, props) {
   const two = question && question.optionTwo.votes.filter(vote => vote === authedUser);
 
   return {
-    id,
     authedUser,
     isOptionOneSelected: one && one.length > 0,
     isOptionTwoSelected: two && two.length > 0,

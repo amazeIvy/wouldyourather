@@ -53,9 +53,7 @@ class NewQuestion extends Component {
             <input type="text" value={optionTwo} placeholder="Option Two" onChange={this.handleOptionTwoChange} />
           </div>
           <button type="button"
-          className={"center mtbm btn " + (optionOne === '' || optionTwo === ''
-            ? 'disabled-btn'
-            : '')}
+          className="center mtbm btn"
           disabled={optionOne === '' || optionTwo === ''}
           onClick={this.handleSubmit}>Submit</button>
         </form>

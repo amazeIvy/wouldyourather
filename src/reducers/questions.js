@@ -1,5 +1,6 @@
 import {
   RECIEVE_QUESTIONS,
+  ADD_NEW_QUESTION,
   SELECT_OPTION_ONE,
   SELECT_OPTION_TWO
 } from '../actions/questions';
@@ -10,6 +11,12 @@ export default function questions (state = {}, action) {
       return {
         ...state,
         ...action.questions,
+      }
+    case ADD_NEW_QUESTION :
+      const { question } = action
+      return {
+        ...state,
+        [question.id]: question
       }
     case SELECT_OPTION_ONE :
       return {

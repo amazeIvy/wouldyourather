@@ -33,6 +33,14 @@ a:hover {
   margin: 0 auto;
 }
 
+.mtbm {
+  margin: 15px auto;
+}
+
+.mtl {
+  margin-top: 30px;
+}
+
 .btn {
   text-transform: uppercase;
   margin: 15px auto;
@@ -45,6 +53,12 @@ a:hover {
   position: relative;
   border-radius: 5px;
   color: #3c786fbd;
+}
+
+.disabled-btn {
+  background: #e0e0e0;
+  color: #bdbdbd;
+  cursor: not-allowed;
 }
 
 /*------- Nav Bar -------*/
@@ -277,4 +291,30 @@ a:hover {
   margin-bottom: 20px;
   font-size: 1.5em;
   font-weight: 700;
+}
+
+/*------- New Question View --------*/
+.new-question-container {
+  max-width: 500px;
+  padding: 10px 30px;
+  border: 2px solid #f2bdbd;
+  border-radius: 10px;
+}
+.new-question-header {
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.4em;
+  margin: 15px auto;
+}
+.new-question-container button {
+  width: 100%;
+}
+.new-question-container input {
+  font-size: 0.8em;
+  width: 97%;
+  height: 25px;
+  margin: 0 1%;
+}
+.new-question-container h4 {
+  font-weight: 500;
 }

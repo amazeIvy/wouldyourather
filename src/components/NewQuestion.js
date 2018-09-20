@@ -42,13 +42,25 @@ class NewQuestion extends Component {
       <section className="container new-question-container new-question-background">
         <form>
           <h3 className="center mtbm">Would You Rather</h3>
-          <input  className="mtbm" type="text" value={optionOne} placeholder="Option One" onChange={this.handleOptionOneChange} />
+          <input  className="mtbm" 
+            type="text" autoFocus
+            value={optionOne} 
+            placeholder="Option One" 
+            onChange={this.handleOptionOneChange} 
+          />
           <h4 className="center mtbm">or</h4>
-          <input  className="mtbm" type="text" value={optionTwo} placeholder="Option Two" onChange={this.handleOptionTwoChange} />
+          <input  className="mtbm" 
+            type="text" 
+            value={optionTwo} 
+            placeholder="Option Two" 
+            onChange={this.handleOptionTwoChange} 
+          />
           <button type="button"
-          className="center mtbm btn"
-          disabled={optionOne === '' || optionTwo === ''}
-          onClick={this.handleSubmit}>Submit</button>
+            className="center mtbm btn"
+            disabled={optionOne === '' || optionTwo === ''}
+            onClick={this.handleSubmit}>
+            Submit
+          </button>
         </form>
       </section>
     )

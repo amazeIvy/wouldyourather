@@ -295,7 +295,9 @@ button[disabled] {
 
 /*------- New Question View --------*/
 .new-question-container {
-  max-width: 500px;
+  align-items: center;
+  width: 500px;
+  height: 500px;
   padding: 10px 30px;
   border: 2px solid #f2bdbd;
   border-radius: 10px;
@@ -307,14 +309,34 @@ button[disabled] {
   margin: 15px auto;
 }
 .new-question-container button {
-  width: 100%;
+  width: 87%;
+  margin-top: 30px;
+  opacity: 0.9;
 }
 .new-question-container input {
   font-size: 0.8em;
-  width: 97%;
+  width: 87%;
   height: 25px;
-  margin: 0 1%;
+  opacity: 0.9;
+}
+.new-question-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 110px;
 }
 .new-question-container h4 {
-  font-weight: 500;
+  font-weight: 700;
+  background-color: #ffffffa3;
+  width: 40px;
+  height: 30px;
+  border-radius: 20px;
+  padding-top: 10px;
+}
+.new-question-background {
+  background-image: url("./images/flower-background.png");
+  background-color: #8fbc8f52;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

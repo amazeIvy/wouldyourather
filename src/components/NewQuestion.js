@@ -39,19 +39,12 @@ class NewQuestion extends Component {
     }
 
     return (
-      <section className="container new-question-container">
-        <h2 className="center new-question-header">Create New Question</h2>
-        <hr />
-        <p className="mtbm">Complete the question:</p>
-        <form className="mtl">
+      <section className="container new-question-container new-question-background">
+        <form>
           <h3 className="center mtbm">Would You Rather</h3>
-          <div className="mtbm">
-            <input type="text" value={optionOne} placeholder="Option One" onChange={this.handleOptionOneChange} />
-          </div>
-          <h4 className="center mtbm">OR</h4>
-          <div className="mtbm">
-            <input type="text" value={optionTwo} placeholder="Option Two" onChange={this.handleOptionTwoChange} />
-          </div>
+          <input  className="mtbm" type="text" value={optionOne} placeholder="Option One" onChange={this.handleOptionOneChange} />
+          <h4 className="center mtbm">or</h4>
+          <input  className="mtbm" type="text" value={optionTwo} placeholder="Option Two" onChange={this.handleOptionTwoChange} />
           <button type="button"
           className="center mtbm btn"
           disabled={optionOne === '' || optionTwo === ''}

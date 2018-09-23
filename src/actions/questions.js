@@ -2,6 +2,7 @@ import { saveQuestion } from '../utils/api'
 
 export const RECIEVE_QUESTIONS = 'RECIEVE_QUESTIONS';
 export const ADD_NEW_QUESTION = 'ADD_NEW_QUESTION';
+export const SAVE_QUESTION_ANSWER = 'SAVE_QUESTION_ANSWER';
 
 export const SELECT_OPTION_ONE = 'SELECT_OPTION_ONE';
 export const SELECT_OPTION_TWO = 'SELECT_OPTION_TWO';
@@ -20,10 +21,17 @@ function addNewQuestion (question) {
   }
 }
 
+export function saveSelectOption (questions) {
+  return {
+    type: SAVE_QUESTION_ANSWER,
+    questions,
+  }
+}
+
 export function handleAddQuestion (optionOneText, optionTwoText, author) {
   return (dispatch) => {
     return saveQuestion({ optionOneText, optionTwoText, author })
-      .then((question) => dispatch(addNewQuestion(question)))
+      .then(question => dispatch(addNewQuestion(question)))
   }
 }
 

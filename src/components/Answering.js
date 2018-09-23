@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { selectOptionOne, selectOptionTwo } from '../actions/questions';
+import { handleSaveQuestionAnswer } from '../actions/shared';
 
 
 class Answering extends Component {
@@ -17,6 +18,19 @@ class Answering extends Component {
       dispatch(selectOptionOne(id, authedUser))
     } else if (option === 'right') {
       dispatch(selectOptionTwo(id, authedUser))
+    }
+
+    this.setState({
+      isAnswered: true
+    })
+  }
+  handleAnswerQuestion = (option) => {
+    const { dispatch, id, authedUser } = this.props;
+
+    if (option === 'left') {
+      dispatch(handleSaveQuestionAnswer(authedUser, id, 'optionOne'))
+    } else if (option === 'right') {
+      dispatch(handleSaveQuestionAnswer(authedUser, id, 'optionTwo'))
     }
 
     this.setState({
@@ -41,10 +55,10 @@ class Answering extends Component {
         </div>
         <div className="option-container">
           <p className="or-icon"><span>or</span></p>
-          <div className="option-left" onClick={() => {this.handleSelect('left')}}>
+          <div className="option-left" onClick={() => {this.handleAnswerQuestion('left')}}>
             <p>{question && question.optionOne.text}</p>
           </div>
-          <div className="option-right" onClick={() => {this.handleSelect('right')}}>
+          <div className="option-right" onClick={() => {this.handleAnswerQuestion('right')}}>
             <p>{question && question.optionTwo.text}</p>
           </div>
         </div>

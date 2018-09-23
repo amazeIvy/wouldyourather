@@ -7,7 +7,8 @@ let users = {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionOne',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "loxhs1bqm25b708cmbf3g": 'optionTwo',
+      "s8qm0ujvi5qlrdhd0cgam": 'optionTwo'
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
@@ -31,10 +32,45 @@ let users = {
       "6ni6ok3ym7mf1p33lnez": 'optionOne'
     },
     questions: ['6ni6ok3ym7mf1p33lnez', 'xj352vofupe1dqz9emx13r'],
+  },
+  ivyfu: {
+    id: 'ivyfu',
+    name: 'Ivy Fu',
+    avatarURL: 'https://image.flaticon.com/icons/svg/206/206870.svg',
+    answers: {
+      "xj352vofupe1dqz9emx13r": 'optionOne',
+      "6ni6ok3ym7mf1p33lnez": 'optionOne',
+      "s8qm0ujvi5qlrdhd0cgam": 'optionTwo'
+    },
+    questions: ['s8qm0ujvi5qlrdhd0cgam'],
+  },
+  esanbunt: {
+    id: 'esanbunt',
+    name: 'Esan Bunt',
+    avatarURL: 'https://image.flaticon.com/icons/svg/206/206897.svg',
+    answers: {
+      "xj352vofupe1dqz9emx13r": 'optionTwo',
+      "vthrdm985a262al8qx3do": 'optionOne',
+      "6ni6ok3ym7mf1p33lnez": 'optionOne'
+    },
+    questions: [],
   }
 }
 
 let questions = {
+  "s8qm0ujvi5qlrdhd0cgam": {
+    id: 's8qm0ujvi5qlrdhd0cgam',
+    author: 'ivyfu',
+    timestamp: 1537707007088,
+    optionOne: {
+      votes: ['sarahedo', 'ivyfu'],
+      text: 'have blond hair and blue eyes',
+    },
+    optionTwo: {
+      votes: [],
+      text: 'have black hair and brown eyes'
+    }
+  },
   "8xf0y6ziyjabvozdd253nd": {
     id: '8xf0y6ziyjabvozdd253nd',
     author: 'sarahedo',

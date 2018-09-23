@@ -11,7 +11,7 @@ export function receiveQuestions (questions) {
   }
 }
 
-function addNewQuestion (question) {
+export function addNewQuestion (question) {
   return {
     type: ADD_NEW_QUESTION,
     question

@@ -1,6 +1,6 @@
-import { getInitialData } from '../utils/api'
-import { receiveUsers } from './users'
-import { receiveQuestions } from './questions'
+import { getInitialData, saveQuestion } from '../utils/api'
+import { receiveUsers, handleUserAddQuestion } from './users'
+import { receiveQuestions, addNewQuestion } from './questions'
 import { setActivePath } from './activePath'
 
 export function handleInitialData () {
@@ -10,6 +10,16 @@ export function handleInitialData () {
         dispatch(receiveUsers(users))
         dispatch(receiveQuestions(questions))
         dispatch(setActivePath('/login'))
+      })
+  }
+}
+
+export function handleAddQuestion (optionOneText, optionTwoText, author) {
+  return (dispatch) => {
+    return saveQuestion({ optionOneText, optionTwoText, author })
+      .then(question => {
+        dispatch(addNewQuestion(question))
+        dispatch(handleUserAddQuestion(author, question.id))
       })
   }
 }

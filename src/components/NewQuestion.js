@@ -21,10 +21,8 @@ class NewQuestion extends Component {
     })
   }
   handleSubmit = () => {
-    // Todo
     const { optionOne, optionTwo } = this.state
     const { authedUser, dispatch } = this.props
-    console.log('submit')
     dispatch(handleAddQuestion(optionOne, optionTwo, authedUser))
 
     this.setState({
@@ -42,18 +40,18 @@ class NewQuestion extends Component {
       <section className="container new-question-container new-question-background">
         <form>
           <h3 className="center mtbm">Would You Rather</h3>
-          <input  className="mtbm" 
+          <input  className="mtbm"
             type="text" autoFocus
-            value={optionOne} 
-            placeholder="Option One" 
-            onChange={this.handleOptionOneChange} 
+            value={optionOne}
+            placeholder="Option One"
+            onChange={this.handleOptionOneChange}
           />
           <h4 className="center mtbm">or</h4>
-          <input  className="mtbm" 
-            type="text" 
-            value={optionTwo} 
-            placeholder="Option Two" 
-            onChange={this.handleOptionTwoChange} 
+          <input  className="mtbm"
+            type="text"
+            value={optionTwo}
+            placeholder="Option Two"
+            onChange={this.handleOptionTwoChange}
           />
           <button type="button"
             className="center mtbm btn"

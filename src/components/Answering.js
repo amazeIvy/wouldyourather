@@ -2,41 +2,31 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { selectOptionOne, selectOptionTwo } from '../actions/questions';
-import { handleSaveQuestionAnswer } from '../actions/shared';
+import { saveSelectOption } from '../actions/questions';
+import { updateUsers } from '../actions/users';
+import { saveQuestionAnswer } from '../utils/api';
 
 
 class Answering extends Component {
   state = {
     isAnswered: false
   }
-  handleSelect = (option) => {
-    // Todo: Change store
+
+  handleAnswerQuestion = (answer) => {
     const { dispatch, id, authedUser } = this.props;
 
-    if (option === 'left') {
-      dispatch(selectOptionOne(id, authedUser))
-    } else if (option === 'right') {
-      dispatch(selectOptionTwo(id, authedUser))
-    }
+    // Dispatch store changes
+    dispatch(saveSelectOption({ authedUser, id, answer }));
+    dispatch(updateUsers({ authedUser, id, answer }))
+
+    // Save changes to mock DB
+    saveQuestionAnswer({ authedUser, qid: id, answer });
 
     this.setState({
       isAnswered: true
     })
   }
-  handleAnswerQuestion = (option) => {
-    const { dispatch, id, authedUser } = this.props;
 
-    if (option === 'left') {
-      dispatch(handleSaveQuestionAnswer(authedUser, id, 'optionOne'))
-    } else if (option === 'right') {
-      dispatch(handleSaveQuestionAnswer(authedUser, id, 'optionTwo'))
-    }
-
-    this.setState({
-      isAnswered: true
-    })
-  }
   render() {
     const { id, avatarURL, question } = this.props;
     const { isAnswered } = this.state;
@@ -55,10 +45,10 @@ class Answering extends Component {
         </div>
         <div className="option-container">
           <p className="or-icon"><span>or</span></p>
-          <div className="option-left" onClick={() => {this.handleAnswerQuestion('left')}}>
+          <div className="option-left" onClick={() => {this.handleAnswerQuestion('optionOne')}}>
             <p>{question && question.optionOne.text}</p>
           </div>
-          <div className="option-right" onClick={() => {this.handleAnswerQuestion('right')}}>
+          <div className="option-right" onClick={() => {this.handleAnswerQuestion('optionTwo')}}>
             <p>{question && question.optionTwo.text}</p>
           </div>
         </div>

@@ -8,9 +8,16 @@ export function receiveUsers (users) {
   }
 }
 
-export function updateUsers (users) {
+
+/*
+ * info: Object{}
+ *  authedUser,
+ *  id(Question Id),
+ *  answer('optionOne'/'optionTwo')
+ */
+export function updateUsers (info) {
   return {
     type: UPDATE_USERS,
-    users
+    info
   }
 }

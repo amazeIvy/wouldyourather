@@ -196,7 +196,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
         }
       }
 
-      res({users, questions})
+      res()
     }, 500)
   })
 }

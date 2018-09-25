@@ -10,7 +10,10 @@ class Answered extends Component {
       isOptionOneSelected,
       isOptionTwoSelected,
       optionOnePercentage,
-      optionTwoPercentage
+      optionTwoPercentage,
+      optionOneVotes,
+      optionTwoVotes,
+      totalVotes
     } = this.props;
 
     return (
@@ -31,6 +34,12 @@ class Answered extends Component {
           )}
             <div className="result-container">
               <p className="result-percent">{optionOnePercentage}%</p>
+              <p className="mbm result-vote-detail">
+                <span>{optionOneVotes} </span>
+                 {optionOneVotes > 1 ? 'votes' : 'vote'} of
+                <span> {totalVotes} </span>
+                 voted {totalVotes > 1 ? 'users' : 'user'}
+              </p>
               <p>{question && question.optionOne.text}</p>
             </div>
           </div>
@@ -42,6 +51,12 @@ class Answered extends Component {
           )}
             <div className="result-container">
               <p className="result-percent">{optionTwoPercentage}%</p>
+              <p className="mbm result-vote-detail">
+                <span>{optionTwoVotes} </span>
+                 {optionTwoVotes > 1 ? 'votes' : 'vote'} of
+                <span> {totalVotes} </span>
+                 voted {totalVotes > 1 ? 'users' : 'user'}
+              </p>
               <p>{question && question.optionTwo.text}</p>
             </div>
           </div>
@@ -75,6 +90,9 @@ function mapStateToProps ({users, questions, authedUser}, props) {
     optionTwoPercentage: sumVotes !== 0
       ? (numTwo / sumVotes * 100).toFixed(2)
       : 0,
+    optionOneVotes: numOne,
+    optionTwoVotes: numTwo,
+    totalVotes: sumVotes,
   }
 }
 

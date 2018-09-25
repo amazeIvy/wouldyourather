@@ -33,16 +33,20 @@ a:hover {
   margin: 0 auto;
 }
 
-.mtbm {
+.mtbm { /* margin-top/bottom: Medium */
   margin: 15px auto;
 }
 
-.mtl {
+.mtl { /* margin-top: Large */
   margin-top: 30px;
 }
 
-.mbl {
+.mbl { /* margin-bottom: Large */
   margin-bottom: 30px;
+}
+
+.mbm { /* margin-bottom: Medium */
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -271,7 +275,7 @@ button[disabled] {
   text-align: center;
   width: 100%;
 }
-.option-container div:hover {
+.option-container .option-left:hover, .option-container .option-right:hover {
   cursor: pointer;
   font-size: 1.1em;
 }
@@ -292,11 +296,16 @@ button[disabled] {
   width: 100%;
 }
 .result-percent {
-  margin-bottom: 20px;
   font-size: 1.5em;
   font-weight: 700;
 }
-
+.result-vote-detail {
+  font-size: 0.8em;
+}
+.result-vote-detail span {
+  font-weight: 700;
+  color: #d28a21;
+}
 /*------- New Question View --------*/
 .new-question-container {
   align-items: center;

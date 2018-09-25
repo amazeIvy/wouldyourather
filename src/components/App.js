@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 
@@ -10,6 +10,7 @@ import Answering from './Answering';
 import Answered from './Answered';
 import NewQuestion from './NewQuestion';
 import LeaderBoard from './LeaderBoard';
+import NotFound from './NotFound';
 
 class App extends Component {
   componentDidMount () {
@@ -23,32 +24,43 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
-          <div>
+          <Switch>
             <Route path='/' exact render={() => (
               authedUser ? (
                 <Home />
               ) : (
-                <Redirect to='/login' />
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { referrer: '/' }
+                  }} />
               )
             )} />
             <Route path='/answering/:id' component={Answering} />
             <Route path='/answered/:id' component={Answered} />
-            <Route path='/new' render={() => (
+            <Route path='/add' render={() => (
               authedUser ? (
                 <NewQuestion />
               ) : (
-                <Redirect to='/login' />
-              )
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { referrer: '/add' }
+                  }} />              )
             )} />
-            <Route path='/leader-board' render={() => (
+            <Route path='/leaderboard' render={() => (
               authedUser ? (
                 <LeaderBoard />
               ) : (
-                <Redirect to='/login' />
-              )
+                <Redirect
+                  to={{
+                    pathname: '/login',
+                    state: { referrer: '/leaderboard' }
+                  }} />              )
             )} />
             <Route path='/login' component={Login} />
-          </div>
+            <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
     );

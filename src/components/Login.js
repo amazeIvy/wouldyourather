@@ -15,11 +15,15 @@ class Login extends Component {
   handleLogIn = (e) => {
     e.preventDefault();
 
-    const { dispatch } = this.props;
+    const { dispatch, location } = this.props;
     const { selectedUserId } = this.state;
 
     dispatch(setAuthedUser(selectedUserId))
-    dispatch(setActivePath('/'))
+
+    const prePath = location.state.referrer;
+    prePath
+      ? dispatch(setActivePath(prePath))
+      : dispatch(setActivePath('/'))
   }
 
   handleSelectUser = (e) => {
@@ -31,10 +35,12 @@ class Login extends Component {
   }
 
   render () {
-    const { users, authedUser } = this.props;
+    const { users, authedUser, location } = this.props;
 
     if (authedUser) {
-      return <Redirect exact to='/' />;
+      return location.state.referrer
+        ? <Redirect to={location.state.referrer} />
+        : <Redirect exact to='/' />
     }
 
     return (

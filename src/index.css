@@ -410,3 +410,13 @@ button[disabled] {
   padding: 3px 0 0 5px;
   z-index: -1;
 }
+
+/*------- 404 Not Found View --------*/
+.not-found-container {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.not-found-container img {
+  width: 100%;
+}

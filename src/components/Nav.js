@@ -30,16 +30,16 @@ class Nav extends Component {
             Home
           </NavLink>
           <NavLink
-            to ='/new'
-            className={ activePath === '/new' ? 'active' : ''}
-            onClick={() => this.handlePathChange('/new')}
+            to ='/add'
+            className={ activePath === '/add' ? 'active' : ''}
+            onClick={() => this.handlePathChange('/add')}
           >
             New Question
           </NavLink>
           <NavLink
-            to ='/leader-board'
-            className={ activePath === '/leader-board' ? 'active' : ''}
-            onClick={() => this.handlePathChange('/leader-board')}
+            to ='/leaderboard'
+            className={ activePath === '/leaderboard' ? 'active' : ''}
+            onClick={() => this.handlePathChange('/leaderboard')}
           >
             Leader Board
           </NavLink>

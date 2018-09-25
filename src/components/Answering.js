@@ -32,7 +32,7 @@ class Answering extends Component {
     const { isAnswered } = this.state;
 
     if (isAnswered) {
-      return <Redirect exact to={`/answered/${id}`} />;
+      return <Redirect exact to={`/answered/${id}`} />
     }
 
     return (

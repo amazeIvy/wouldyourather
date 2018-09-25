@@ -5,24 +5,19 @@ import { formatQuestion } from '../utils/helpers'
 import { Link, withRouter } from 'react-router-dom'
 
 class Question extends Component {
-  state = {
-    toPath: this.props.btnName === 'View' ? 'answered' : 'answering'
-  }
-
   toAnswerPage = (e) => {
     e.preventDefault();
     const { history, id } = this.props;
-    const { toPath } = this.state;
-    history.push(`/${toPath}/${id}`)
+
+    history.push(`/questions/${id}`)
   }
 
   render () {
     const { id, question, btnName } = this.props;
-    const { toPath } = this.state;
     const { authorAvatar, authorName, optionOne, optionTwo } = question;
 
     return (
-      <Link to={`/${toPath}/${id}`}>
+      <Link to={`/questions/${id}`}>
         <div className="question">
           <img className="avatar-big" src={authorAvatar} title={authorName} alt="Author Avatar" />
           <div className="question-content">

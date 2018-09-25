@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { saveSelectOption } from '../actions/questions';
@@ -8,10 +7,6 @@ import { saveQuestionAnswer } from '../utils/api';
 
 
 class Answering extends Component {
-  state = {
-    isAnswered: false
-  }
-
   handleAnswerQuestion = (answer) => {
     const { dispatch, id, authedUser } = this.props;
 
@@ -21,19 +16,10 @@ class Answering extends Component {
 
     // Save changes to mock DB
     saveQuestionAnswer({ authedUser, qid: id, answer });
-
-    this.setState({
-      isAnswered: true
-    })
   }
 
   render() {
-    const { id, avatarURL, question } = this.props;
-    const { isAnswered } = this.state;
-
-    if (isAnswered) {
-      return <Redirect exact to={`/answered/${id}`} />
-    }
+    const { avatarURL, question } = this.props;
 
     return (
       <section className="container answer-container">
@@ -58,7 +44,7 @@ class Answering extends Component {
 }
 
 function mapStateToProps ({users, questions, authedUser}, props) {
-  const { id } = props.match.params;
+  const { id } = props;
   const userId = questions[id] && questions[id].author;
 
   return {

@@ -63,11 +63,11 @@ let questions = {
     author: 'ivyfu',
     timestamp: 1537707007088,
     optionOne: {
-      votes: ['sarahedo', 'ivyfu'],
+      votes: ['sarahedo'],
       text: 'have blond hair and blue eyes',
     },
     optionTwo: {
-      votes: [],
+      votes: ['ivyfu'],
       text: 'have black hair and brown eyes'
     }
   },
@@ -89,7 +89,7 @@ let questions = {
     author: 'johndoe',
     timestamp: 1468479767190,
     optionOne: {
-      votes: [],
+      votes: ['ivyfu', 'esanbunt'],
       text: 'become a superhero',
     },
     optionTwo: {
@@ -128,7 +128,7 @@ let questions = {
     author: 'tylermcginnis',
     timestamp: 1489579767190,
     optionOne: {
-      votes: ['tylermcginnis'],
+      votes: ['tylermcginnis', 'esanbunt'],
       text: 'find $50 yourself',
     },
     optionTwo: {
@@ -141,11 +141,11 @@ let questions = {
     author: 'johndoe',
     timestamp: 1493579767190,
     optionOne: {
-      votes: ['johndoe'],
+      votes: ['johndoe', 'ivyfu'],
       text: 'write JavaScript',
     },
     optionTwo: {
-      votes: ['tylermcginnis'],
+      votes: ['tylermcginnis', 'esanbunt'],
       text: 'write Swift'
     }
   },

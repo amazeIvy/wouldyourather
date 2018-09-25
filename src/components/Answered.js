@@ -52,7 +52,7 @@ class Answered extends Component {
 }
 
 function mapStateToProps ({users, questions, authedUser}, props) {
-  const { id } = props.match.params;
+  const { id } = props;
   const question = questions && questions[id];
   const userId = question && question.author;
 

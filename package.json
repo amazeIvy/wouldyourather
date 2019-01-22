@@ -16,5 +16,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "rekit-core": "^2.3.4",
+    "rekit-studio": "^2.4.1"
   }
 }
